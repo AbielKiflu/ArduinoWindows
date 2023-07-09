@@ -7,6 +7,8 @@
 The device read the temperature of a room and it displays in the windows app using serial port, The user can also controll 
 the colors of the LED by clicking the crossponding buttons.
 
+Demo video click  *[here](https://youtu.be/9zny0XfS3EM)*.
+
 #### Arduino device
 + Read temprature of a room using DHT11
 + Send the reading to an application connected with
