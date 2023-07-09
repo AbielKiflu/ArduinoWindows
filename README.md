@@ -18,5 +18,12 @@
 
 #### Circuit scheme
 
+#### Components
+1. DHT11 (1)
+2. Wires (6)
+3. RGB LED (1)
+4. Arduino uno (1)
+
+
 ![alt Application](doc/schema.jpeg)
 
