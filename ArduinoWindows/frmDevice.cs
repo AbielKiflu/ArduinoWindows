@@ -14,7 +14,7 @@ namespace ArduinoWindows
         public frmDevice()
         {
             InitializeComponent();
-
+            lblTemp.Text = "_" + degree + "C";
             cmboPort.DataSource = SerialPort.GetPortNames();
             cmboBaud.DataSource = baudRates;
             cmboBaud.SelectedIndex = 5;
@@ -33,9 +33,9 @@ namespace ArduinoWindows
             {
                 lblTemp.Invoke(new SafeDisplay((data) =>
                 {
-                    lblTemp.Text = data + degree;
+                    lblTemp.Text = data + degree + "C";
 
-                }),new object[] {data});
+                }), new object[] { data });
             }
 
             if (pbarTemp.InvokeRequired)
