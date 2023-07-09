@@ -8,7 +8,7 @@ namespace ArduinoWindows
     {
         private static SerialPort serialPort;
         private delegate void SafeDisplay(string val);
-
+        private const char degree = '\u00B0';
         private readonly int[] baudRates = new int[] { 110, 300, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 57600, 115200, 128000, 256000 };
 
         public frmDevice()
@@ -28,6 +28,15 @@ namespace ArduinoWindows
         private void OnDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string data = serialPort.ReadLine();
+
+            if (lblTemp.InvokeRequired)
+            {
+                lblTemp.Invoke(new SafeDisplay((data) =>
+                {
+                    lblTemp.Text = data + degree;
+
+                }),new object[] {data});
+            }
 
             if (pbarTemp.InvokeRequired)
             {

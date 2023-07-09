@@ -44,6 +44,7 @@
             btnGreen = new Button();
             btnRed = new Button();
             label5 = new Label();
+            lblTemp = new Label();
             pnlConfig.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -227,12 +228,23 @@
             label5.TabIndex = 1;
             label5.Text = "RGB";
             // 
+            // lblTemp
+            // 
+            lblTemp.AutoSize = true;
+            lblTemp.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTemp.Location = new Point(703, 100);
+            lblTemp.Name = "lblTemp";
+            lblTemp.Size = new Size(23, 25);
+            lblTemp.TabIndex = 9;
+            lblTemp.Text = "0";
+            // 
             // frmDevice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(892, 491);
+            Controls.Add(lblTemp);
             Controls.Add(panel1);
             Controls.Add(btnConnect);
             Controls.Add(label4);
@@ -269,5 +281,6 @@
         private Button btnGreen;
         private Button btnRed;
         private Button btnOff;
+        private Label lblTemp;
     }
 }
