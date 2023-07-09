@@ -35,6 +35,9 @@
             label2 = new Label();
             btnSave = new Button();
             label1 = new Label();
+            pbarTemp = new ProgressBar();
+            label4 = new Label();
+            btnConnect = new Button();
             pnlConfig.SuspendLayout();
             SuspendLayout();
             // 
@@ -91,7 +94,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(173, 175);
+            btnSave.Location = new Point(173, 156);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 29);
             btnSave.TabIndex = 1;
@@ -109,12 +112,44 @@
             label1.TabIndex = 0;
             label1.Text = "Config";
             // 
+            // pbarTemp
+            // 
+            pbarTemp.Location = new Point(435, 102);
+            pbarTemp.Name = "pbarTemp";
+            pbarTemp.Size = new Size(262, 23);
+            pbarTemp.Step = 5;
+            pbarTemp.TabIndex = 1;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(351, 110);
+            label4.Name = "label4";
+            label4.Size = new Size(67, 15);
+            label4.TabIndex = 7;
+            label4.Text = "Temprature";
+            // 
+            // btnConnect
+            // 
+            btnConnect.BackColor = Color.Red;
+            btnConnect.ForeColor = Color.White;
+            btnConnect.Location = new Point(334, 28);
+            btnConnect.Name = "btnConnect";
+            btnConnect.Size = new Size(75, 29);
+            btnConnect.TabIndex = 7;
+            btnConnect.Text = "Connect";
+            btnConnect.UseVisualStyleBackColor = false;
+            btnConnect.Click += btnConnect_Click;
+            // 
             // frmDevice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(892, 491);
+            Controls.Add(btnConnect);
+            Controls.Add(label4);
+            Controls.Add(pbarTemp);
             Controls.Add(pnlConfig);
             MaximizeBox = false;
             Name = "frmDevice";
@@ -124,6 +159,7 @@
             pnlConfig.ResumeLayout(false);
             pnlConfig.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -135,5 +171,8 @@
         private Button btnSave;
         private ComboBox cmboBaud;
         private Label label3;
+        private ProgressBar pbarTemp;
+        private Label label4;
+        private Button btnConnect;
     }
 }
