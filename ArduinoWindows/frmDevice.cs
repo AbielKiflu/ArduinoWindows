@@ -55,8 +55,10 @@ namespace ArduinoWindows
 
 
                             pbarTemp.Value = temp;
+
                         }
-                        catch(Exception ex) {
+                        catch (Exception ex)
+                        {
                             MessageBox.Show(ex.Message.ToString());
                         }
                     }), new object[] { data });
@@ -139,6 +141,31 @@ namespace ArduinoWindows
                     MessageBox.Show(ex.Message.ToString());
                 }
             }
+        }
+
+        private void cmboPort_Click(object sender, EventArgs e)
+        {
+            cmboPort.DataSource = SerialPort.GetPortNames();
+        }
+
+        private void btnRed_Click(object sender, EventArgs e)
+        {
+            serialPort.WriteLine("R");
+        }
+
+        private void btnBlue_Click(object sender, EventArgs e)
+        {
+            serialPort.WriteLine("B");
+        }
+
+        private void btnGreen_Click(object sender, EventArgs e)
+        {
+            serialPort.WriteLine("G");
+        }
+
+        private void btnOff_Click(object sender, EventArgs e)
+        {
+            serialPort.WriteLine("O");
         }
     }
 

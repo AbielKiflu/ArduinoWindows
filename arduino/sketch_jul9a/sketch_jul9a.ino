@@ -1,6 +1,12 @@
 #include <DHT.h>
 
+//DHT temp sensor PINS
 #define DHTPIN 2 
+
+//RGB PINS
+#define BLUE 3
+#define GREEN 5
+#define RED 6
 
 #define DHTTYPE DHT11
 
@@ -13,17 +19,50 @@ void setup() {
   Serial.println(F("DHTxx test!"));
   dht.begin();
 
+  // Set pinmode
+  pinMode(RED, OUTPUT);
+  pinMode(GREEN, OUTPUT);
+  pinMode(BLUE, OUTPUT);
+
+ 
+
+
 
 }
 
 void loop() {
    delay(2000);
-   float h = dht.readHumidity();
+   //float h = dht.readHumidity();
    float t = dht.readTemperature();
   
-  if(isnan(h) || isnan(t) ) {
-      Serial.println(F("Failed to read from DHT sensor!"));
+  if(isnan(t) ) {
       return;
+  }
+
+  if(Serial.available()){
+    char charCmd = Serial.read();
+     switch(charCmd){
+       case 'R':
+        digitalWrite(RED, HIGH);
+        digitalWrite(GREEN, LOW);
+        digitalWrite(BLUE, LOW);
+       break;
+       case 'G':
+        digitalWrite(RED, LOW);
+        digitalWrite(GREEN, HIGH);
+        digitalWrite(BLUE, LOW);
+       break;
+       case 'B':
+        digitalWrite(RED, LOW);
+        digitalWrite(GREEN, LOW);
+        digitalWrite(BLUE, HIGH);
+       break;
+      case 'O':
+        digitalWrite(RED, LOW);
+        digitalWrite(GREEN, LOW);
+        digitalWrite(BLUE, LOW);
+      break;
+     }
   }
 
    Serial.println(t);
