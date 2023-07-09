@@ -9,12 +9,14 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace ArduinoWindows
 {
     public partial class frmDevice : Form
     {
         private static SerialPort serialPort;
+        private delegate void SafeDisplay(string val);
 
         private readonly int[] baudRates = new int[] { 110, 300, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 57600, 115200, 128000, 256000 };
 
@@ -28,9 +30,49 @@ namespace ArduinoWindows
             cmboPort.SelectedIndex = 0;
 
             serialPort = new SerialPort();
-
+            serialPort.DataReceived += OnDataReceived;
 
         }
+
+        private void OnDataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            string data = serialPort.ReadLine();
+
+            if (pbarTemp.InvokeRequired)
+            {
+                try
+                {
+                    pbarTemp.Invoke(new SafeDisplay((data) =>
+                    {
+                        try
+                        {
+                            int temp = (int)double.Parse(data);
+                            if (temp > 50) { return; }
+                            if (temp <= 25)
+                                pbarTemp.ForeColor = Color.Blue;
+                            else
+                                pbarTemp.ForeColor = Color.Red;
+
+
+                            pbarTemp.Value = temp;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message.ToString());
+                        }
+                    }), new object[] { data });
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+
+        }
+
+
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -99,6 +141,31 @@ namespace ArduinoWindows
                     MessageBox.Show(ex.Message.ToString());
                 }
             }
+        }
+
+        private void cmboPort_Click(object sender, EventArgs e)
+        {
+            cmboPort.DataSource = SerialPort.GetPortNames();
+        }
+
+        private void btnRed_Click(object sender, EventArgs e)
+        {
+            serialPort.WriteLine("R");
+        }
+
+        private void btnBlue_Click(object sender, EventArgs e)
+        {
+            serialPort.WriteLine("B");
+        }
+
+        private void btnGreen_Click(object sender, EventArgs e)
+        {
+            serialPort.WriteLine("G");
+        }
+
+        private void btnOff_Click(object sender, EventArgs e)
+        {
+            serialPort.WriteLine("O");
         }
     }
 
