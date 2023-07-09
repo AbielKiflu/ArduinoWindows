@@ -1,4 +1,8 @@
 # ArduinoWindows
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ed31bc582d1ebe2b2c35839bdf697179005caa5
 
 ###Comunicate between arduino and windows app
 
