@@ -1,7 +1,7 @@
 # ArduinoWindows
  
 
-###Comunicate between arduino and windows app
+### Comunicate between arduino and windows app
 
 #### Arduino device
 1. Read temprature of a room using DHT11
@@ -18,6 +18,8 @@
 
 
 #### Circuit scheme
+
+Code for the Microcontroller is found *[here](arduino/sketch_jul9a/sketch_jul9a.ino)*.
 
 ##### Components
 1. DHT11 (1)
