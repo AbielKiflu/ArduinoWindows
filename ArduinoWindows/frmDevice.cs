@@ -37,15 +37,39 @@ namespace ArduinoWindows
         private void OnDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string data = serialPort.ReadLine();
-  
-            if (label4.InvokeRequired)
+
+            if (pbarTemp.InvokeRequired)
             {
-                label4.Invoke(new SafeDisplay((data) => label4.Text = data), new object[] { data });
+                try
+                {
+                    pbarTemp.Invoke(new SafeDisplay((data) =>
+                    {
+                        try
+                        {
+                            int temp = (int)double.Parse(data);
+                            if (temp > 50) { return; }
+                            if (temp <= 25)
+                                pbarTemp.ForeColor = Color.Blue;
+                            else
+                                pbarTemp.ForeColor = Color.Red;
+
+
+                            pbarTemp.Value = temp;
+                        }
+                        catch(Exception ex) {
+                            MessageBox.Show(ex.Message.ToString());
+                        }
+                    }), new object[] { data });
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
 
         }
 
-      
+
 
 
         private void btnSave_Click(object sender, EventArgs e)

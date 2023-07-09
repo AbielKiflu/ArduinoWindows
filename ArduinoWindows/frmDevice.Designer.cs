@@ -115,9 +115,11 @@
             // pbarTemp
             // 
             pbarTemp.Location = new Point(435, 102);
+            pbarTemp.Maximum = 50;
             pbarTemp.Name = "pbarTemp";
             pbarTemp.Size = new Size(262, 23);
-            pbarTemp.Step = 5;
+            pbarTemp.Step = 1;
+            pbarTemp.Style = ProgressBarStyle.Continuous;
             pbarTemp.TabIndex = 1;
             // 
             // label4

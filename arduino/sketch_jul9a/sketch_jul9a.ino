@@ -27,5 +27,6 @@ void loop() {
   }
 
    Serial.println(t);
+   //Serial.println(h)
 
 }
