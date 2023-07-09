@@ -38,7 +38,14 @@
             pbarTemp = new ProgressBar();
             label4 = new Label();
             btnConnect = new Button();
+            panel1 = new Panel();
+            btnBlue = new Button();
+            btnGreen = new Button();
+            btnRed = new Button();
+            label5 = new Label();
+            btnOff = new Button();
             pnlConfig.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pnlConfig
@@ -82,6 +89,7 @@
             cmboPort.Name = "cmboPort";
             cmboPort.Size = new Size(132, 28);
             cmboPort.TabIndex = 4;
+            cmboPort.Click += cmboPort_Click;
             // 
             // label2
             // 
@@ -115,9 +123,11 @@
             // pbarTemp
             // 
             pbarTemp.Location = new Point(435, 102);
+            pbarTemp.Maximum = 50;
             pbarTemp.Name = "pbarTemp";
             pbarTemp.Size = new Size(262, 23);
-            pbarTemp.Step = 5;
+            pbarTemp.Step = 1;
+            pbarTemp.Style = ProgressBarStyle.Continuous;
             pbarTemp.TabIndex = 1;
             // 
             // label4
@@ -141,12 +151,85 @@
             btnConnect.UseVisualStyleBackColor = false;
             btnConnect.Click += btnConnect_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Plum;
+            panel1.Controls.Add(btnOff);
+            panel1.Controls.Add(btnBlue);
+            panel1.Controls.Add(btnGreen);
+            panel1.Controls.Add(btnRed);
+            panel1.Controls.Add(label5);
+            panel1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            panel1.Location = new Point(351, 185);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(407, 145);
+            panel1.TabIndex = 8;
+            // 
+            // btnBlue
+            // 
+            btnBlue.BackColor = Color.FromArgb(0, 0, 192);
+            btnBlue.ForeColor = Color.White;
+            btnBlue.Location = new Point(179, 56);
+            btnBlue.Name = "btnBlue";
+            btnBlue.Size = new Size(75, 29);
+            btnBlue.TabIndex = 10;
+            btnBlue.Text = "Blue";
+            btnBlue.UseVisualStyleBackColor = false;
+            btnBlue.Click += btnBlue_Click;
+            // 
+            // btnGreen
+            // 
+            btnGreen.BackColor = Color.Green;
+            btnGreen.ForeColor = Color.White;
+            btnGreen.Location = new Point(98, 56);
+            btnGreen.Name = "btnGreen";
+            btnGreen.Size = new Size(75, 29);
+            btnGreen.TabIndex = 9;
+            btnGreen.Text = "Green";
+            btnGreen.UseVisualStyleBackColor = false;
+            btnGreen.Click += btnGreen_Click;
+            // 
+            // btnRed
+            // 
+            btnRed.BackColor = Color.Red;
+            btnRed.ForeColor = Color.White;
+            btnRed.Location = new Point(17, 56);
+            btnRed.Name = "btnRed";
+            btnRed.Size = new Size(75, 29);
+            btnRed.TabIndex = 8;
+            btnRed.Text = "Red";
+            btnRed.UseVisualStyleBackColor = false;
+            btnRed.Click += btnRed_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(17, 13);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 25);
+            label5.TabIndex = 1;
+            label5.Text = "RGB";
+            // 
+            // btnOff
+            // 
+            btnOff.BackColor = Color.Black;
+            btnOff.ForeColor = Color.White;
+            btnOff.Location = new Point(260, 56);
+            btnOff.Name = "btnOff";
+            btnOff.Size = new Size(75, 29);
+            btnOff.TabIndex = 11;
+            btnOff.Text = "Off";
+            btnOff.UseVisualStyleBackColor = false;
+            btnOff.Click += btnOff_Click;
+            // 
             // frmDevice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(892, 491);
+            Controls.Add(panel1);
             Controls.Add(btnConnect);
             Controls.Add(label4);
             Controls.Add(pbarTemp);
@@ -158,6 +241,8 @@
             Load += frmDevice_Load;
             pnlConfig.ResumeLayout(false);
             pnlConfig.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -174,5 +259,11 @@
         private ProgressBar pbarTemp;
         private Label label4;
         private Button btnConnect;
+        private Panel panel1;
+        private Label label5;
+        private Button btnBlue;
+        private Button btnGreen;
+        private Button btnRed;
+        private Button btnOff;
     }
 }
