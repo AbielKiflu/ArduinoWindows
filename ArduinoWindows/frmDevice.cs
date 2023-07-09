@@ -59,12 +59,45 @@ namespace ArduinoWindows
                 {
                     string baudrate = cmboBaud.SelectedValue?.ToString();
                     serialPort.PortName = cmboPort.SelectedItem?.ToString();
-                    serialPort.BaudRate = baudrate!=null ? int.Parse(baudrate): 9600;
-                }catch (Exception ex)
+                    serialPort.BaudRate = baudrate != null ? int.Parse(baudrate) : 9600;
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString());
                 }
 
+            }
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+
+
+            if (serialPort.IsOpen)
+            {
+                try
+                {
+                    serialPort.Close();
+                    btnConnect.BackColor = Color.Red;
+                    btnConnect.Text = "Connect";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+            else
+            {
+                try
+                {
+                    serialPort.Open();
+                    btnConnect.BackColor = Color.Green;
+                    btnConnect.Text = "Connected";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
         }
     }
