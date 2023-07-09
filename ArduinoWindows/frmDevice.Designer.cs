@@ -39,17 +39,18 @@
             label4 = new Label();
             btnConnect = new Button();
             panel1 = new Panel();
+            btnOff = new Button();
             btnBlue = new Button();
             btnGreen = new Button();
             btnRed = new Button();
             label5 = new Label();
-            btnOff = new Button();
             pnlConfig.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pnlConfig
             // 
+            pnlConfig.BackColor = Color.Thistle;
             pnlConfig.BorderStyle = BorderStyle.FixedSingle;
             pnlConfig.Controls.Add(cmboBaud);
             pnlConfig.Controls.Add(label3);
@@ -75,6 +76,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(19, 116);
             label3.Name = "label3";
             label3.Size = new Size(77, 20);
@@ -94,6 +96,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(19, 73);
             label2.Name = "label2";
             label2.Size = new Size(79, 20);
@@ -102,6 +105,7 @@
             // 
             // btnSave
             // 
+            btnSave.ForeColor = Color.Black;
             btnSave.Location = new Point(173, 156);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 29);
@@ -116,9 +120,9 @@
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(19, 14);
             label1.Name = "label1";
-            label1.Size = new Size(72, 25);
+            label1.Size = new Size(84, 25);
             label1.TabIndex = 0;
-            label1.Text = "Config";
+            label1.Text = "Settings";
             // 
             // pbarTemp
             // 
@@ -165,6 +169,18 @@
             panel1.Size = new Size(407, 145);
             panel1.TabIndex = 8;
             // 
+            // btnOff
+            // 
+            btnOff.BackColor = Color.Black;
+            btnOff.ForeColor = Color.White;
+            btnOff.Location = new Point(260, 56);
+            btnOff.Name = "btnOff";
+            btnOff.Size = new Size(75, 29);
+            btnOff.TabIndex = 11;
+            btnOff.Text = "Off";
+            btnOff.UseVisualStyleBackColor = false;
+            btnOff.Click += btnOff_Click;
+            // 
             // btnBlue
             // 
             btnBlue.BackColor = Color.FromArgb(0, 0, 192);
@@ -210,18 +226,6 @@
             label5.Size = new Size(50, 25);
             label5.TabIndex = 1;
             label5.Text = "RGB";
-            // 
-            // btnOff
-            // 
-            btnOff.BackColor = Color.Black;
-            btnOff.ForeColor = Color.White;
-            btnOff.Location = new Point(260, 56);
-            btnOff.Name = "btnOff";
-            btnOff.Size = new Size(75, 29);
-            btnOff.TabIndex = 11;
-            btnOff.Text = "Off";
-            btnOff.UseVisualStyleBackColor = false;
-            btnOff.Click += btnOff_Click;
             // 
             // frmDevice
             // 
