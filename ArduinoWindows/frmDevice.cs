@@ -39,7 +39,7 @@ namespace ArduinoWindows
                         {
                             int temp = (int)double.Parse(data);
                             if (temp > 50) { return; }
-                            if (temp <= 25)
+                            if (temp <= 27)
                                 pbarTemp.ForeColor = Color.Blue;
                             else
                                 pbarTemp.ForeColor = Color.Red;

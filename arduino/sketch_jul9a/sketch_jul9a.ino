@@ -21,7 +21,6 @@ DHT dht(DHTPIN, DHTTYPE);
 void setup() {
 
   Serial.begin(9600);
-  Serial.println(F("DHTxx test!"));
   dht.begin();
 
   // Set pinmode
@@ -32,7 +31,7 @@ void setup() {
 }
 
 void loop() {
-   delay(2000);
+   delay(500);
    //float h = dht.readHumidity();
    float t = dht.readTemperature();
   
