@@ -9,12 +9,14 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace ArduinoWindows
 {
     public partial class frmDevice : Form
     {
         private static SerialPort serialPort;
+        private delegate void SafeDisplay(string val);
 
         private readonly int[] baudRates = new int[] { 110, 300, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 57600, 115200, 128000, 256000 };
 
@@ -28,9 +30,23 @@ namespace ArduinoWindows
             cmboPort.SelectedIndex = 0;
 
             serialPort = new SerialPort();
-
+            serialPort.DataReceived += OnDataReceived;
 
         }
+
+        private void OnDataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            string data = serialPort.ReadLine();
+  
+            if (label4.InvokeRequired)
+            {
+                label4.Invoke(new SafeDisplay((data) => label4.Text = data), new object[] { data });
+            }
+
+        }
+
+      
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
