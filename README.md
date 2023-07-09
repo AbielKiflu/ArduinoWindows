@@ -1,2 +1,2 @@
 # ArduinoWindows
-Comunicate between arduino and windows app
+Interact between arduino and windows app
