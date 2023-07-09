@@ -18,7 +18,7 @@
 
 #### Circuit scheme
 
-#### Components
+##### Components
 1. DHT11 (1)
 2. Wires (6)
 3. RGB LED (1)
