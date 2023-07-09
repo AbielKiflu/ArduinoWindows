@@ -14,3 +14,9 @@
 
 ![alt Application](doc/screen.JPG)
 
+
+
+#### Circuit scheme
+
+![alt Application](doc/schema.jpeg)
+
