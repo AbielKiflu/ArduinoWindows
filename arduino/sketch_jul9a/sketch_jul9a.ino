@@ -10,6 +10,11 @@
 
 #define DHTTYPE DHT11
 
+// c programing language
+ 
+ 
+
+
 DHT dht(DHTPIN, DHTTYPE);
 
 
@@ -23,10 +28,6 @@ void setup() {
   pinMode(RED, OUTPUT);
   pinMode(GREEN, OUTPUT);
   pinMode(BLUE, OUTPUT);
-
- 
-
-
 
 }
 
