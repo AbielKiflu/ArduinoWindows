@@ -25,7 +25,7 @@ Demo video click  *[here](https://youtu.be/9zny0XfS3EM)*.
 
 #### Circuit scheme
 
-Code for the Microcontroller is found *[here](arduino/sketch_jul9a/sketch_jul9a.ino)*.
+Code for the Microcontroller is found *[here](arduino/arduinoCode.ino)*.
 
 ##### Components
 1. DHT11 (1)
