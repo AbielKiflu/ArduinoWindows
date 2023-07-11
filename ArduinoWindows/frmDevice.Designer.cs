@@ -45,6 +45,9 @@
             btnRed = new Button();
             label5 = new Label();
             lblTemp = new Label();
+            lblDistance = new Label();
+            label7 = new Label();
+            pbarDistance = new ProgressBar();
             pnlConfig.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -165,7 +168,7 @@
             panel1.Controls.Add(btnRed);
             panel1.Controls.Add(label5);
             panel1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            panel1.Location = new Point(351, 185);
+            panel1.Location = new Point(351, 237);
             panel1.Name = "panel1";
             panel1.Size = new Size(407, 145);
             panel1.TabIndex = 8;
@@ -238,12 +241,46 @@
             lblTemp.TabIndex = 9;
             lblTemp.Text = "0";
             // 
+            // lblDistance
+            // 
+            lblDistance.AutoSize = true;
+            lblDistance.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDistance.Location = new Point(703, 143);
+            lblDistance.Name = "lblDistance";
+            lblDistance.Size = new Size(23, 25);
+            lblDistance.TabIndex = 12;
+            lblDistance.Text = "0";
+            lblDistance.Visible = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(351, 153);
+            label7.Name = "label7";
+            label7.Size = new Size(58, 15);
+            label7.TabIndex = 11;
+            label7.Text = "Proximity";
+            // 
+            // pbarDistance
+            // 
+            pbarDistance.ForeColor = Color.SaddleBrown;
+            pbarDistance.Location = new Point(435, 145);
+            pbarDistance.Maximum = 400;
+            pbarDistance.Name = "pbarDistance";
+            pbarDistance.Size = new Size(262, 23);
+            pbarDistance.Step = 1;
+            pbarDistance.Style = ProgressBarStyle.Continuous;
+            pbarDistance.TabIndex = 10;
+            // 
             // frmDevice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(892, 491);
+            Controls.Add(lblDistance);
+            Controls.Add(label7);
+            Controls.Add(pbarDistance);
             Controls.Add(lblTemp);
             Controls.Add(panel1);
             Controls.Add(btnConnect);
@@ -282,5 +319,8 @@
         private Button btnRed;
         private Button btnOff;
         private Label lblTemp;
+        private Label lblDistance;
+        private Label label7;
+        private ProgressBar pbarDistance;
     }
 }
