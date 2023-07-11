@@ -29,24 +29,24 @@ namespace ArduinoWindows
         {
             string data = serialPort.ReadLine();
 
-            if (lblTemp.InvokeRequired)
+            if (data.Contains("tem"))
             {
-                lblTemp.Invoke(new SafeDisplay((data) =>
+                string[] results = data.Split(",");
+                string tempStr = results[1].Trim();
+                lblTemp.Invoke(new SafeDisplay((tempStr) =>
                 {
-                    lblTemp.Text = data + degree + "C";
+                     
+                    lblTemp.Text = tempStr + degree + "C";
 
-                }), new object[] { data });
-            }
+            }), new object[] { tempStr });
 
-            if (pbarTemp.InvokeRequired)
-            {
                 try
                 {
-                    pbarTemp.Invoke(new SafeDisplay((data) =>
+                    pbarTemp.Invoke(new SafeDisplay((tempStr) =>
                     {
                         try
                         {
-                            int temp = (int)double.Parse(data);
+                            int temp = int.Parse(tempStr);
                             if (temp > 50) { return; }
                             if (temp <= 27)
                                 pbarTemp.ForeColor = Color.Blue;
@@ -61,13 +61,25 @@ namespace ArduinoWindows
                         {
                             MessageBox.Show(ex.Message.ToString());
                         }
-                    }), new object[] { data });
+                    }), new object[] { tempStr });
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString());
                 }
+
             }
+            else if (data.Contains("uls"))
+            {
+                //Todo
+            }
+            else
+            {
+                
+
+
+            }
+ 
 
         }
 
