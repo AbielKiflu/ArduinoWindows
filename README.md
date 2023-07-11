@@ -14,7 +14,7 @@ Demo video click  *[here](https://youtu.be/9zny0XfS3EM)*.
 + Send the reading to an application connected with
 + User can change the color of RGBA LED by clicking button
 + When user clicked the application send character to arduino device R,G,B and O for Red, Green, Blue and Off respectively
-+ *[Ultrasonic]([https://youtu.be/9zny0XfS3EM](https://arduinogetstarted.com/images/tutorial/ultrasonic-sensor-pinout.jpg)* sensor added, it is a device that measures the distance of an object placed infront of it 
++ *[Ultrasonic](https://arduinogetstarted.com/images/tutorial/ultrasonic-sensor-pinout.jpg)* sensor added, it is a device that measures the distance of an object placed infront of it 
 
 
 
