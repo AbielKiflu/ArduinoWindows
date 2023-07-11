@@ -35,10 +35,10 @@ namespace ArduinoWindows
                 string tempStr = results[1].Trim();
                 lblTemp.Invoke(new SafeDisplay((tempStr) =>
                 {
-                     
+
                     lblTemp.Text = tempStr + degree + "C";
 
-            }), new object[] { tempStr });
+                }), new object[] { tempStr });
 
                 try
                 {
@@ -71,15 +71,23 @@ namespace ArduinoWindows
             }
             else if (data.Contains("uls"))
             {
-                //Todo
+                string[] results = data.Split(",");
+                string ulsStr = results[1].Trim();
+                int distance = int.Parse(ulsStr);
+                pbarDistance.Invoke(new SafeDisplay((ulsStr) =>
+                {
+
+                    pbarDistance.Value = distance;
+
+                }), new object[] { ulsStr });
             }
             else
             {
-                
+
 
 
             }
- 
+
 
         }
 
