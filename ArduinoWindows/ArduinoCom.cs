@@ -42,6 +42,9 @@ namespace ArduinoWindows
             }
         }
 
+
+
+
         private void OnDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string data = serialPort.ReadLine();

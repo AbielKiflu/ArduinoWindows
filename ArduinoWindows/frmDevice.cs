@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO.Ports;
+using System.Windows.Forms;
 
 
 namespace ArduinoWindows
@@ -23,23 +24,36 @@ namespace ArduinoWindows
 
             _arduinoCom.DataReceived += OnDataReceived;
 
-            lblTemp.Text = "_" + degree + "C";
-            cmboPort.DataSource = SerialPort.GetPortNames();
-            cmboBaud.DataSource = baudRates;
-            cmboBaud.SelectedIndex = 5;
-            cmboPort.SelectedIndex = 0;
+            //Initial form values
+            init_Load();
 
         }
 
 
+        private void btnLED_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            string ledColor = button.Text[0].ToString().ToUpper();
+            switch(ledColor) {
+                case "R":
+                    _arduinoCom.SendCommand("R");
+                    break;
+                case "G":
+                    _arduinoCom.SendCommand("G");
+                    break;
+                case "B":
+                    _arduinoCom.SendCommand("B");
+                    break;
+                case "O":
+                    _arduinoCom.SendCommand("O");
+                    break;
+            }
+        }
 
 
         // User connect event
         private void btnConnect_Click(object sender, EventArgs e)
         {
-
-
-
             if (_arduinoCom.IsConnected)
             {
                 _arduinoCom.Disconnect();
@@ -55,6 +69,12 @@ namespace ArduinoWindows
         }
 
 
+        //Release resources when closing
+        private void frmDevice_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _arduinoCom.Disconnect();
+        }
+
 
         // DataReceive event 
         private void OnDataReceived(object sender, string data)
@@ -62,11 +82,20 @@ namespace ArduinoWindows
             if (data.Contains("tem"))
             {
                 string[] results = data.Split(",");
-                string tempStr = results[1].Trim();
-                this.Invoke(new Action(() =>
+                try
                 {
-                    lblTemp.Text = tempStr + degree + "C";
-                }));
+                    string tempStr = results[1].Trim();
+                    this.Invoke(new Action(() =>
+                    {
+                        lblTemp.Text = tempStr + degree + "C";
+
+                        //pbarTemp.Value = int.Parse(tempStr); //To be fixed
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    // show unbothering error message
+                }
 
             }
             else if (data.Contains("uls"))
@@ -74,7 +103,7 @@ namespace ArduinoWindows
                 string[] results = data.Split(",");
                 string ulsStr = results[1].Trim();
                 int distance = int.Parse(ulsStr);
-                pbarDistance.Invoke(new Action(() =>
+                this.Invoke(new Action(() =>
                 {
                     pbarDistance.Value = distance;
                 }));
@@ -85,11 +114,34 @@ namespace ArduinoWindows
             }
         }
 
-        private void frmDevice_FormClosing(object sender, FormClosingEventArgs e)
+
+
+
+
+        // Initial values of controls
+        private void init_Load()
         {
-            //Release resources
-            _arduinoCom.Disconnect();
+
+            // subscribe event to each btn LED
+            foreach (Control btn in this.pnlLED.Controls)
+            {
+                if (btn.GetType() == typeof(Button))
+                    if (btn.Text.Contains("LED"))
+                        btn.Click += btnLED_Click;
+
+            }
+
+            //Loading input initial value
+            lblTemp.Text = "_" + degree + "C";
+            cmboPort.DataSource = SerialPort.GetPortNames();
+            cmboBaud.DataSource = baudRates;
+            cmboBaud.SelectedIndex = 5;
+            cmboPort.SelectedIndex = 0;
         }
+
+
+
+
     }
 
 

@@ -37,7 +37,7 @@
             btnConnect = new Button();
             pbarTemp = new ProgressBar();
             label4 = new Label();
-            panel1 = new Panel();
+            pnlLED = new Panel();
             btnOff = new Button();
             btnBlue = new Button();
             btnGreen = new Button();
@@ -48,7 +48,7 @@
             label7 = new Label();
             pbarDistance = new ProgressBar();
             pnlConfig.SuspendLayout();
-            panel1.SuspendLayout();
+            pnlLED.SuspendLayout();
             SuspendLayout();
             // 
             // pnlConfig
@@ -129,7 +129,7 @@
             // 
             // pbarTemp
             // 
-            pbarTemp.Location = new Point(435, 102);
+            pbarTemp.Location = new Point(424, 43);
             pbarTemp.Maximum = 50;
             pbarTemp.Name = "pbarTemp";
             pbarTemp.Size = new Size(262, 23);
@@ -140,57 +140,57 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(351, 110);
+            label4.Location = new Point(340, 51);
             label4.Name = "label4";
             label4.Size = new Size(67, 15);
             label4.TabIndex = 7;
             label4.Text = "Temprature";
             // 
-            // panel1
+            // pnlLED
             // 
-            panel1.BackColor = Color.Plum;
-            panel1.Controls.Add(btnOff);
-            panel1.Controls.Add(btnBlue);
-            panel1.Controls.Add(btnGreen);
-            panel1.Controls.Add(btnRed);
-            panel1.Controls.Add(label5);
-            panel1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            panel1.Location = new Point(351, 237);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(407, 145);
-            panel1.TabIndex = 8;
+            pnlLED.BackColor = Color.Plum;
+            pnlLED.Controls.Add(btnOff);
+            pnlLED.Controls.Add(btnBlue);
+            pnlLED.Controls.Add(btnGreen);
+            pnlLED.Controls.Add(btnRed);
+            pnlLED.Controls.Add(label5);
+            pnlLED.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            pnlLED.Location = new Point(340, 145);
+            pnlLED.Name = "pnlLED";
+            pnlLED.Size = new Size(499, 189);
+            pnlLED.TabIndex = 8;
             // 
             // btnOff
             // 
             btnOff.BackColor = Color.Black;
             btnOff.ForeColor = Color.White;
-            btnOff.Location = new Point(260, 56);
+            btnOff.Location = new Point(332, 56);
             btnOff.Name = "btnOff";
-            btnOff.Size = new Size(75, 29);
+            btnOff.Size = new Size(108, 29);
             btnOff.TabIndex = 11;
-            btnOff.Text = "Off";
+            btnOff.Text = "Off LED";
             btnOff.UseVisualStyleBackColor = false;
             // 
             // btnBlue
             // 
             btnBlue.BackColor = Color.FromArgb(0, 0, 192);
             btnBlue.ForeColor = Color.White;
-            btnBlue.Location = new Point(179, 56);
+            btnBlue.Location = new Point(232, 56);
             btnBlue.Name = "btnBlue";
-            btnBlue.Size = new Size(75, 29);
+            btnBlue.Size = new Size(108, 29);
             btnBlue.TabIndex = 10;
-            btnBlue.Text = "Blue";
+            btnBlue.Text = "Blue LED";
             btnBlue.UseVisualStyleBackColor = false;
             // 
             // btnGreen
             // 
             btnGreen.BackColor = Color.Green;
             btnGreen.ForeColor = Color.White;
-            btnGreen.Location = new Point(98, 56);
+            btnGreen.Location = new Point(124, 56);
             btnGreen.Name = "btnGreen";
-            btnGreen.Size = new Size(75, 29);
+            btnGreen.Size = new Size(108, 29);
             btnGreen.TabIndex = 9;
-            btnGreen.Text = "Green";
+            btnGreen.Text = "Green LED";
             btnGreen.UseVisualStyleBackColor = false;
             // 
             // btnRed
@@ -199,9 +199,9 @@
             btnRed.ForeColor = Color.White;
             btnRed.Location = new Point(17, 56);
             btnRed.Name = "btnRed";
-            btnRed.Size = new Size(75, 29);
+            btnRed.Size = new Size(108, 29);
             btnRed.TabIndex = 8;
-            btnRed.Text = "Red";
+            btnRed.Text = "Red LED";
             btnRed.UseVisualStyleBackColor = false;
             // 
             // label5
@@ -218,7 +218,7 @@
             // 
             lblTemp.AutoSize = true;
             lblTemp.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTemp.Location = new Point(703, 100);
+            lblTemp.Location = new Point(692, 41);
             lblTemp.Name = "lblTemp";
             lblTemp.Size = new Size(23, 25);
             lblTemp.TabIndex = 9;
@@ -228,7 +228,7 @@
             // 
             lblDistance.AutoSize = true;
             lblDistance.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDistance.Location = new Point(703, 143);
+            lblDistance.Location = new Point(692, 84);
             lblDistance.Name = "lblDistance";
             lblDistance.Size = new Size(23, 25);
             lblDistance.TabIndex = 12;
@@ -238,7 +238,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(351, 153);
+            label7.Location = new Point(340, 94);
             label7.Name = "label7";
             label7.Size = new Size(58, 15);
             label7.TabIndex = 11;
@@ -247,7 +247,7 @@
             // pbarDistance
             // 
             pbarDistance.ForeColor = Color.SaddleBrown;
-            pbarDistance.Location = new Point(435, 145);
+            pbarDistance.Location = new Point(424, 86);
             pbarDistance.Maximum = 400;
             pbarDistance.Name = "pbarDistance";
             pbarDistance.Size = new Size(262, 23);
@@ -265,7 +265,7 @@
             Controls.Add(label7);
             Controls.Add(pbarDistance);
             Controls.Add(lblTemp);
-            Controls.Add(panel1);
+            Controls.Add(pnlLED);
             Controls.Add(label4);
             Controls.Add(pbarTemp);
             Controls.Add(pnlConfig);
@@ -276,8 +276,8 @@
             FormClosing += frmDevice_FormClosing;
             pnlConfig.ResumeLayout(false);
             pnlConfig.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlLED.ResumeLayout(false);
+            pnlLED.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -293,7 +293,7 @@
         private ProgressBar pbarTemp;
         private Label label4;
         private Button btnConnect;
-        private Panel panel1;
+        private Panel pnlLED;
         private Label label5;
         private Button btnBlue;
         private Button btnGreen;
