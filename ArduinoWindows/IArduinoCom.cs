@@ -8,6 +8,7 @@ namespace ArduinoWindows
 {
     public interface IArduinoCom
     {
+        bool IsConnected { get; }
         void Connect(string portName, int baudRate);
         void Disconnect();
         void SendCommand(string command);

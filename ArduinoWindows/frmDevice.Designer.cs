@@ -33,11 +33,10 @@
             label3 = new Label();
             cmboPort = new ComboBox();
             label2 = new Label();
-            btnSave = new Button();
             label1 = new Label();
+            btnConnect = new Button();
             pbarTemp = new ProgressBar();
             label4 = new Label();
-            btnConnect = new Button();
             panel1 = new Panel();
             btnOff = new Button();
             btnBlue = new Button();
@@ -60,8 +59,8 @@
             pnlConfig.Controls.Add(label3);
             pnlConfig.Controls.Add(cmboPort);
             pnlConfig.Controls.Add(label2);
-            pnlConfig.Controls.Add(btnSave);
             pnlConfig.Controls.Add(label1);
+            pnlConfig.Controls.Add(btnConnect);
             pnlConfig.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             pnlConfig.Location = new Point(23, 28);
             pnlConfig.Name = "pnlConfig";
@@ -95,7 +94,6 @@
             cmboPort.Name = "cmboPort";
             cmboPort.Size = new Size(132, 28);
             cmboPort.TabIndex = 4;
-            cmboPort.Click += cmboPort_Click;
             // 
             // label2
             // 
@@ -107,17 +105,6 @@
             label2.TabIndex = 2;
             label2.Text = "Port Name";
             // 
-            // btnSave
-            // 
-            btnSave.ForeColor = Color.Black;
-            btnSave.Location = new Point(173, 156);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 29);
-            btnSave.TabIndex = 1;
-            btnSave.Text = "Update";
-            btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += btnSave_Click;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -127,6 +114,18 @@
             label1.Size = new Size(84, 25);
             label1.TabIndex = 0;
             label1.Text = "Settings";
+            // 
+            // btnConnect
+            // 
+            btnConnect.BackColor = Color.Red;
+            btnConnect.ForeColor = Color.White;
+            btnConnect.Location = new Point(192, 165);
+            btnConnect.Name = "btnConnect";
+            btnConnect.Size = new Size(75, 29);
+            btnConnect.TabIndex = 7;
+            btnConnect.Text = "Connect";
+            btnConnect.UseVisualStyleBackColor = false;
+            btnConnect.Click += btnConnect_Click;
             // 
             // pbarTemp
             // 
@@ -146,18 +145,6 @@
             label4.Size = new Size(67, 15);
             label4.TabIndex = 7;
             label4.Text = "Temprature";
-            // 
-            // btnConnect
-            // 
-            btnConnect.BackColor = Color.Red;
-            btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(334, 28);
-            btnConnect.Name = "btnConnect";
-            btnConnect.Size = new Size(75, 29);
-            btnConnect.TabIndex = 7;
-            btnConnect.Text = "Connect";
-            btnConnect.UseVisualStyleBackColor = false;
-            btnConnect.Click += btnConnect_Click;
             // 
             // panel1
             // 
@@ -183,7 +170,6 @@
             btnOff.TabIndex = 11;
             btnOff.Text = "Off";
             btnOff.UseVisualStyleBackColor = false;
-            btnOff.Click += btnOff_Click;
             // 
             // btnBlue
             // 
@@ -195,7 +181,6 @@
             btnBlue.TabIndex = 10;
             btnBlue.Text = "Blue";
             btnBlue.UseVisualStyleBackColor = false;
-            btnBlue.Click += btnBlue_Click;
             // 
             // btnGreen
             // 
@@ -207,7 +192,6 @@
             btnGreen.TabIndex = 9;
             btnGreen.Text = "Green";
             btnGreen.UseVisualStyleBackColor = false;
-            btnGreen.Click += btnGreen_Click;
             // 
             // btnRed
             // 
@@ -219,7 +203,6 @@
             btnRed.TabIndex = 8;
             btnRed.Text = "Red";
             btnRed.UseVisualStyleBackColor = false;
-            btnRed.Click += btnRed_Click;
             // 
             // label5
             // 
@@ -283,7 +266,6 @@
             Controls.Add(pbarDistance);
             Controls.Add(lblTemp);
             Controls.Add(panel1);
-            Controls.Add(btnConnect);
             Controls.Add(label4);
             Controls.Add(pbarTemp);
             Controls.Add(pnlConfig);
@@ -291,7 +273,7 @@
             Name = "frmDevice";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Arduino";
-            Load += frmDevice_Load;
+            FormClosing += frmDevice_FormClosing;
             pnlConfig.ResumeLayout(false);
             pnlConfig.PerformLayout();
             panel1.ResumeLayout(false);
@@ -306,7 +288,6 @@
         private Label label1;
         private ComboBox cmboPort;
         private Label label2;
-        private Button btnSave;
         private ComboBox cmboBaud;
         private Label label3;
         private ProgressBar pbarTemp;

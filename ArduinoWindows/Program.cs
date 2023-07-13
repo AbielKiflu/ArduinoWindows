@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Application.Run(new frmDevice());
+             
+            IArduinoCom arduinoCom = new ArduinoCom();   
+            Application.Run(new frmDevice(arduinoCom));
         }
     }
 }

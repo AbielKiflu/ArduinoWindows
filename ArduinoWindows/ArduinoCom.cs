@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO.Ports;
+
 
 namespace ArduinoWindows
 {
-    internal class ArduinoCom
+    internal class ArduinoCom : IArduinoCom
     {
 
         private SerialPort serialPort;
+        public bool IsConnected => serialPort.IsOpen;
 
         public ArduinoCom()
         {
@@ -33,6 +30,7 @@ namespace ArduinoWindows
             if (serialPort.IsOpen)
             {
                 serialPort.Close();
+                
             }
         }
 
