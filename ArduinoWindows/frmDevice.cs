@@ -8,7 +8,7 @@ namespace ArduinoWindows
     public partial class frmDevice : Form
     {
         private IArduinoCom _arduinoCom;
-
+ 
         private delegate void SafeDisplay(string val);
         private const char degree = '\u00B0';
         private readonly int[] baudRates = new int[] { 110, 300, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 57600, 115200, 128000, 256000 };
@@ -81,28 +81,18 @@ namespace ArduinoWindows
         {
             if (data.Contains("tem"))
             {
-                string[] results = data.Split(",");
-                try
+                int temperature = data.GetDeviceValue();
+                this.Invoke(new Action(() =>
                 {
-                    string tempStr = results[1].Trim();
-                    this.Invoke(new Action(() =>
-                    {
-                        lblTemp.Text = tempStr + degree + "C";
+                    lblTemp.Text = temperature.ToString() + degree + "C";
 
-                        //pbarTemp.Value = int.Parse(tempStr); //To be fixed
-                    }));
-                }
-                catch (Exception ex)
-                {
-                    // show unbothering error message
-                }
+                    pbarTemp.Value = temperature > 0 ? temperature : 0; 
+                }));
 
             }
             else if (data.Contains("uls"))
             {
-                string[] results = data.Split(",");
-                string ulsStr = results[1].Trim();
-                int distance = int.Parse(ulsStr);
+                int distance = data.GetDeviceValue();
                 this.Invoke(new Action(() =>
                 {
                     pbarDistance.Value = distance;
