@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
              
-            IArduinoCom arduinoCom = new ArduinoCom();   
+            IArduinoCommunication arduinoCom = new ArduinoCommunication();   
             Application.Run(new frmDevice(arduinoCom));
         }
     }

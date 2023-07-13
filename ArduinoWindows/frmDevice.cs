@@ -7,7 +7,7 @@ namespace ArduinoWindows
 {
     public partial class frmDevice : Form
     {
-        private IArduinoCom _arduinoCom;
+        private IArduinoCommunication _arduinoCom;
  
         private delegate void SafeDisplay(string val);
         private const char degree = '\u00B0';
@@ -16,7 +16,7 @@ namespace ArduinoWindows
 
 
 
-        public frmDevice(IArduinoCom arduinoCom)
+        public frmDevice(IArduinoCommunication arduinoCom)
         {
             InitializeComponent();
 
