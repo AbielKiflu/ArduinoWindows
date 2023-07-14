@@ -1,17 +1,17 @@
-﻿using System;
-using System.IO.Ports;
-using System.Windows.Forms;
+﻿using System.IO.Ports;
 
 
 namespace ArduinoWindows
 {
     public partial class frmDevice : Form
     {
-        private IArduinoCommunication _arduinoCom;
- 
-        private delegate void SafeDisplay(string val);
         private const char degree = '\u00B0';
-        private readonly int[] baudRates = new int[] { 110, 300, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 57600, 115200, 128000, 256000 };
+        private readonly int[] baudRates = new int[] { 110, 300, 1200, 2400, 4800, 9600, 14400, 19200, 38400,
+            57600, 115200, 128000, 256000 };
+
+        private IArduinoCommunication _arduinoCom;
+
+       
 
 
 
@@ -25,7 +25,7 @@ namespace ArduinoWindows
             _arduinoCom.DataReceived += OnDataReceived;
 
             //Initial form values
-            init_Load();
+            Init_Load();
 
         }
 
@@ -34,7 +34,8 @@ namespace ArduinoWindows
         {
             Button button = (Button)sender;
             string ledColor = button.Text[0].ToString().ToUpper();
-            switch(ledColor) {
+            switch (ledColor)
+            {
                 case "R":
                     _arduinoCom.SendCommand("R");
                     break;
@@ -86,7 +87,7 @@ namespace ArduinoWindows
                 {
                     lblTemp.Text = temperature.ToString() + degree + "C";
 
-                    pbarTemp.Value = temperature > 0 ? temperature : 0; 
+                    pbarTemp.Value = temperature > 0 ? temperature : 0;
                 }));
 
             }
@@ -109,7 +110,7 @@ namespace ArduinoWindows
 
 
         // Initial values of controls
-        private void init_Load()
+        private void Init_Load()
         {
 
             // subscribe event to each btn LED
@@ -118,7 +119,6 @@ namespace ArduinoWindows
                 if (btn.GetType() == typeof(Button))
                     if (btn.Text.Contains("LED"))
                         btn.Click += btnLED_Click;
-
             }
 
             //Loading input initial value

@@ -7,7 +7,7 @@ namespace ArduinoWindows
     {
 
         private SerialPort serialPort;
-        public bool IsConnected => serialPort.IsOpen;
+        public bool IsConnected => serialPort != null && serialPort.IsOpen;
 
         public ArduinoCommunication()
         {
