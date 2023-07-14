@@ -8,6 +8,7 @@ namespace ArduinoWindows
         private const char degree = '\u00B0';
         private readonly int[] baudRates = new int[] { 110, 300, 1200, 2400, 4800, 9600, 14400, 19200, 38400,
             57600, 115200, 128000, 256000 };
+        private string ledColor = ""; // should be char?
 
         private IArduinoCommunication _arduinoCom;
 
@@ -33,7 +34,7 @@ namespace ArduinoWindows
         private void btnLED_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            string ledColor = button.Text[0].ToString().ToUpper();
+            ledColor = button.Text[0].ToString().ToUpper();
             switch (ledColor)
             {
                 case "R":
@@ -45,7 +46,7 @@ namespace ArduinoWindows
                 case "B":
                     _arduinoCom.SendCommand("B");
                     break;
-                case "O":
+                default:
                     _arduinoCom.SendCommand("O");
                     break;
             }
