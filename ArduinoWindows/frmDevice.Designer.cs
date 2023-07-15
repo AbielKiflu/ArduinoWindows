@@ -38,7 +38,6 @@
             pbarTemp = new ProgressBar();
             label4 = new Label();
             pnlLED = new Panel();
-            btnOff = new Button();
             btnBlue = new Button();
             btnGreen = new Button();
             btnRed = new Button();
@@ -47,6 +46,8 @@
             lblDistance = new Label();
             label7 = new Label();
             pbarDistance = new ProgressBar();
+            label6 = new Label();
+            lblPoint = new Label();
             pnlConfig.SuspendLayout();
             pnlLED.SuspendLayout();
             SuspendLayout();
@@ -64,7 +65,7 @@
             pnlConfig.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             pnlConfig.Location = new Point(23, 28);
             pnlConfig.Name = "pnlConfig";
-            pnlConfig.Size = new Size(295, 439);
+            pnlConfig.Size = new Size(295, 306);
             pnlConfig.TabIndex = 0;
             // 
             // cmboBaud
@@ -149,7 +150,6 @@
             // pnlLED
             // 
             pnlLED.BackColor = Color.Plum;
-            pnlLED.Controls.Add(btnOff);
             pnlLED.Controls.Add(btnBlue);
             pnlLED.Controls.Add(btnGreen);
             pnlLED.Controls.Add(btnRed);
@@ -157,19 +157,8 @@
             pnlLED.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             pnlLED.Location = new Point(340, 145);
             pnlLED.Name = "pnlLED";
-            pnlLED.Size = new Size(499, 189);
+            pnlLED.Size = new Size(375, 189);
             pnlLED.TabIndex = 8;
-            // 
-            // btnOff
-            // 
-            btnOff.BackColor = Color.Black;
-            btnOff.ForeColor = Color.White;
-            btnOff.Location = new Point(332, 56);
-            btnOff.Name = "btnOff";
-            btnOff.Size = new Size(108, 29);
-            btnOff.TabIndex = 11;
-            btnOff.Text = "Off LED";
-            btnOff.UseVisualStyleBackColor = false;
             // 
             // btnBlue
             // 
@@ -255,12 +244,32 @@
             pbarDistance.Style = ProgressBarStyle.Continuous;
             pbarDistance.TabIndex = 10;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(23, 374);
+            label6.Name = "label6";
+            label6.Size = new Size(66, 15);
+            label6.TabIndex = 13;
+            label6.Text = "Coordinate";
+            // 
+            // lblPoint
+            // 
+            lblPoint.AutoSize = true;
+            lblPoint.Location = new Point(96, 374);
+            lblPoint.Name = "lblPoint";
+            lblPoint.Size = new Size(36, 15);
+            lblPoint.TabIndex = 14;
+            lblPoint.Text = "{x , y}";
+            // 
             // frmDevice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(892, 491);
+            ClientSize = new Size(892, 714);
+            Controls.Add(lblPoint);
+            Controls.Add(label6);
             Controls.Add(lblDistance);
             Controls.Add(label7);
             Controls.Add(pbarDistance);
@@ -298,10 +307,11 @@
         private Button btnBlue;
         private Button btnGreen;
         private Button btnRed;
-        private Button btnOff;
         private Label lblTemp;
         private Label lblDistance;
         private Label label7;
         private ProgressBar pbarDistance;
+        private Label label6;
+        private Label lblPoint;
     }
 }
