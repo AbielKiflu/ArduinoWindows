@@ -57,11 +57,11 @@ void loop() {
         Serial.println("uls," + String(length)); 
     }
 
-    // random cordinates and send in form of point=X,Y int value every 1500ms
+    // random cordinates and send in form of point=X,Y int value every 1500ms-
     short X = random(0, 200);
     short Y = random(0, 200);
     delay(1500);
-    Serial.println("point=" + String(X + "," + String(Y)); 
+    Serial.println("point=" + String(X) + "," + String(Y)); 
 
     //LED color
     if(Serial.available()){
