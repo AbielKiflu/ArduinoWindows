@@ -21,7 +21,13 @@ namespace ArduinoWindows
             {
                 serialPort.PortName = portName;
                 serialPort.BaudRate = baudRate;
-                serialPort.Open();
+                try
+                {
+                    serialPort.Open();
+                }catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -29,8 +35,15 @@ namespace ArduinoWindows
         {
             if (serialPort.IsOpen)
             {
-                serialPort.Close();
-                
+                try
+                {
+                    serialPort.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
         }
 
