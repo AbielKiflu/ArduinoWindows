@@ -1,13 +1,14 @@
 ﻿using System;
 using System.IO.Ports;
-using System.Windows.Forms.DataVisualization.Charting;
  
+
+
 
 namespace ArduinoWindows
 {
     public partial class frmDevice : Form
     {
-        private Chart chart;
+      
         private const char degree = '\u00B0';
         private readonly int[] baudRates = new int[] { 110, 300, 1200, 2400, 4800, 9600, 14400, 19200, 38400,
             57600, 115200, 128000, 256000 };
@@ -29,27 +30,7 @@ namespace ArduinoWindows
 
             //Initial form values
             Init_Load();
-
-
-            var dataPoints = new[] {
-        new { X = "A", Y = 10 },
-        new { X = "B", Y = 20 },
-        new { X = "C", Y = 15 },
-        new { X = "D", Y = 30 },
-        new { X = "E", Y = 25 }
-    };
-              chart = new Chart();
-
-            // Configure chart properties
-            chart.ChartAreas.Add(new ChartArea());
-            chart.Series.Add(new Series());
-            chart.Series[0].ChartType = SeriesChartType.Column; // Set chart type (e.g., Column, Line, Pie)
-            chart.Series[0].Points.DataBindXY(
-                new[] { "A", "B", "C", "D", "E" },
-                new[] { 10, 20, 15, 30, 25 });
-
-            
-            this.Controls.Add(chart);
+    
 
         }
 
@@ -155,7 +136,7 @@ namespace ArduinoWindows
             cmboPort.DataSource = SerialPort.GetPortNames();
             cmboBaud.DataSource = baudRates;
             cmboBaud.SelectedIndex = 5;
-            
+
         }
 
 

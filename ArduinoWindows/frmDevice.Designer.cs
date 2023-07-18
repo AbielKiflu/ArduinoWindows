@@ -48,6 +48,7 @@
             pbarDistance = new ProgressBar();
             label6 = new Label();
             lblPoint = new Label();
+            pnlChart = new Panel();
             pnlConfig.SuspendLayout();
             pnlLED.SuspendLayout();
             SuspendLayout();
@@ -262,12 +263,21 @@
             lblPoint.TabIndex = 14;
             lblPoint.Text = "{x , y}";
             // 
+            // pnlChart
+            // 
+            pnlChart.BackColor = Color.WhiteSmoke;
+            pnlChart.Location = new Point(185, 374);
+            pnlChart.Name = "pnlChart";
+            pnlChart.Size = new Size(495, 287);
+            pnlChart.TabIndex = 15;
+            // 
             // frmDevice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(892, 619);
+            ClientSize = new Size(892, 673);
+            Controls.Add(pnlChart);
             Controls.Add(lblPoint);
             Controls.Add(label6);
             Controls.Add(lblDistance);
@@ -313,5 +323,6 @@
         private ProgressBar pbarDistance;
         private Label label6;
         private Label lblPoint;
+        private Panel pnlChart;
     }
 }
