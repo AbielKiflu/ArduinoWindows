@@ -1,7 +1,7 @@
 # ArduinoWindows
  
 
-### Comunicate between arduino and windows app
+### Communicate between arduino and windows app
 
 #### Description
 The device read the temperature of a room and it displays in the windows app using serial port, The user can also controll 
